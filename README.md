@@ -39,3 +39,58 @@ El sistema ha sido optimizado para un costo de lista de materiales (BOM) objetiv
 [Semtech SX1262]   ── $3.80 USD │   (Optimizado para producción masiva)
 [ST LSM6DSOX]      ── $2.10 USD │
 [Otros / PMIC/PCB] ── $24.70 USD┘
+📂 Estructura del Repositorio
+Proyecto-DR-VF-01-Cerca-Virtual/
+├── docs/         # Documentación técnica, especificaciones en LaTeX y PDF listo
+│   ├── Secciones/
+│   ├── Configuracion.tex
+│   ├── Main.tex
+│   └── DR-VF-01_Especificacion_Tecnica.pdf
+├── hardware/     # Diseños esquemáticos y PCB en Altium Designer
+├── firmware/     # Código fuente ESP-IDF / PlatformIO (FreeRTOS, Drivers, FSM)
+├── .gitignore    # Reglas de exclusión para temporales de Altium y LaTeX
+└── README.md     # Portada técnica del proyecto
+📄 Documentación Técnica
+La especificación completa del sistema, junto con los requerimientos derivados y la tabla detallada de casos de uso, se encuentra compilada en la carpeta docs/:
+
+👉 Ver Especificación Técnica en PDF
+🚀 Instalación y Uso Local
+Para clonar este repositorio en tu equipo con el historial de versiones completo:
+git clone [https://github.com/tu-usuario/Proyecto-DR-VF-01-Cerca-Virtual.git](https://github.com/tu-usuario/Proyecto-DR-VF-01-Cerca-Virtual.git)
+cd Proyecto-DR-VF-01-Cerca-Virtual
+📜 Licencia y Contacto
+---
+
+### Pasos para guardar y subir el `README.md` con GitHub Desktop
+
+<Steps>
+  <Step subtitle="1 min" title="Crear el archivo en la raíz del proyecto">
+    1. Abre el **Bloc de notas** o VS Code.
+    2. Copia y pega el código Markdown anterior.
+    3. Ve a **Archivo** $\rightarrow$ **Guardar como...**
+    4. Navega hasta la carpeta raíz del proyecto (`Proyecto DR-VF-01-Cerca-Virtual`).
+    5. Selecciona el tipo **Todos los archivos (*.*)**, nombra el archivo exactamente **`README.md`** y haz clic en **Guardar**.
+
+    *Para verificar que el paso fue exitoso:* Verás el archivo `README.md` ubicado en la carpeta principal de tu proyecto al mismo nivel que `Docs`, `hardware` y `firmware`.
+  </Step>
+
+  <Step subtitle="1 min" title="Registrar el Commit en GitHub Desktop">
+    Abre **GitHub Desktop**:
+    1. En el panel izquierdo **Changes**, verás el nuevo archivo `README.md` marcado en verde.
+    2. En la casilla **Summary** (abajo a la izquierda), escribe: `docs: add professional README.md cover for repository`.
+    3. Haz clic en el botón azul **Commit to main**.
+
+    *Para verificar que el paso fue exitoso:* La lista de cambios en verde se limpiará.
+  </Step>
+
+  <Step subtitle="1 min" title="Publicar en GitHub">
+    Haz clic en el botón **Push origin** en la barra superior.
+
+    *Para verificar que el paso fue exitoso:* Ve a tu navegador web, entra a tu repositorio en GitHub y verás la portada con tablas, insignias y enlaces formateados correctamente.
+  </Step>
+</Steps>
+
+<Elicitations message="¿Pudiste publicar el README.md en GitHub?">
+  <Elicitation label="Estructura para Altium" query="Ya está listo el repositorio. ¿Cómo organizamos la carpeta Hardware para iniciar con el diseño en Altium Designer?"/>
+  <Elicitation label="Verificar enlace en GitHub" query="¿Cómo confirmo que los botones y la documentación PDF se abren correctamente desde la página web de GitHub?"/>
+</Elicitations>
