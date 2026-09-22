@@ -82,3 +82,4 @@ cd Proyecto-DR-VF-01-Cerca-Virtual
 ## 📜 Licencia y Contacto
 
 Desarrollado como proyecto de grado e investigación en ingeniería electrónica para monitoreo ganadero y agricultura de precisión.
+...
