@@ -7,9 +7,9 @@
 
 ## 🌟 Descripción General
 
-El **DR-VF-01** es un nodo IoT embebido de grado industrial (*Edge Device*) diseñado para la contención geográfica de bovinos mediante cercas virtuales (*Virtual Fencing*) y la supervisión del bienestar animal en entornos rurale aislados. 
+El **DR-VF-01** es un nodo IoT embebido de grado industrial (*Edge Device*) diseñado para la contención geográfica de bovinos mediante cercas virtuales (*Virtual Fencing*) y la supervisión del bienestar animal en entornos rurales aislados. 
 
-El sistema combina geolocalización multiconstelación de alta precisión, conectividad híbrida (LTE Cat-M1/NB-IoT + LoRa + BLE/Wi-Fi), algoritmos de Inteligencia Artificial en el Borde (*Edge AI*) para la clasificación del comportamiento animal y un sistema disuasivo electrostático aislado que cumple estrictamente con el bienestar animal y la normativa internacional **IEC 60335-2-76**.
+El sistema combina geolocalización multiconstelación de alta precisión, conectividad híbrida (LTE Cat-M1/NB-IoT + LoRa + BLE/Wi-Fi), algoritmos de Inteligencia Artificial en el Borde (*Edge AI*) para la clasificación del comportamiento animal y un sistema disuasivo electrostático aislado que cumple strictly con el bienestar animal y la normativa internacional **IEC 60335-2-76**.
 
 ---
 
@@ -18,13 +18,13 @@ El sistema combina geolocalización multiconstelación de alta precisión, conec
 | Módulo | Componente Clave | Función Principal |
 | :--- | :--- | :--- |
 | **Unidad Central (MCU)** | ESP32-S3-N16R8 | Dual-core Xtensa LX7 @ 240 MHz, 16 MB Flash, 8 MB PSRAM, Servidor Web local y SoftAP/BLE. |
-| **Módem Celular** | Quectel BG95-M3 | Telemetría en la nube mediante LTE Cat-M1 / NB-IoT / EGPRS. Modo PSM con consumo de $3.9\,\mu\text{A}$. |
+| **Módem Celular** | Quectel BG95-M3 | Telemetría en la nube mediante LTE Cat-M1 / NB-IoT / EGPRS. Modo PSM con consumo de 3.9 µA. |
 | **Navegación GNSS** | u-blox MAX-M10S | Rastreo multiconstelación (GPS, GLONASS, Galileo, BeiDou) con filtro LNA/SAW integrado. |
-| **Radio de Respaldo** | Semtech SX1262 | Transceptor LoRa de largo alcance ($+22\,\text{dBm}$) para telemetría offline sin red celular. |
+| **Radio de Respaldo** | Semtech SX1262 | Transceptor LoRa de largo alcance (+22 dBm) para telemetría offline sin red celular. |
 | **IMU / Edge AI** | ST LSM6DSOX | Acelerómetro/Giroscopio de 6 ejes con *Machine Learning Core* (MLC) para detección de rumia y descanso. |
 | **Memoria de Estado** | Fujitsu MB85RS64V | FRAM SPI de 64 Kb para almacenamiento de polígonos sin desgaste por escrituras continuas. |
-| **Gestión Energética** | MAX17048 + CN3791 | Medidor de carga (*Fuel Gauge*) por $\text{I}^2\text{C}$ con algoritmo ModelGauge y cargador Solar MPPT para LiFePO4. |
-| **Estímulo Disuasivo** | Etapa Aislada $0.2\,\text{J}$ | Pulso disuasivo de $0.2\,\text{J}$ @ $2.5\,\text{kV}$ accionado por optoacoplador VO617A e *interlock* por hardware. |
+| **Gestión Energética** | MAX17048 + CN3791 | Medidor de carga (*Fuel Gauge*) por I2C con algoritmo ModelGauge y cargador Solar MPPT para LiFePO4. |
+| **Estímulo Disuasivo** | Etapa Aislada 0.2 J | Pulso disuasivo de 0.2 J @ 2.5 kV accionado por optoacoplador VO617A e *interlock* por hardware. |
 
 ---
 
@@ -39,7 +39,13 @@ El sistema ha sido optimizado para un costo de lista de materiales (BOM) objetiv
 [Semtech SX1262]   ── $3.80 USD │   (Optimizado para producción masiva)
 [ST LSM6DSOX]      ── $2.10 USD │
 [Otros / PMIC/PCB] ── $24.70 USD┘
-📂 Estructura del Repositorio
+```
+
+---
+
+## 📂 Estructura del Repositorio
+
+```text
 Proyecto-DR-VF-01-Cerca-Virtual/
 ├── docs/         # Documentación técnica, especificaciones en LaTeX y PDF listo
 │   ├── Secciones/
@@ -50,47 +56,29 @@ Proyecto-DR-VF-01-Cerca-Virtual/
 ├── firmware/     # Código fuente ESP-IDF / PlatformIO (FreeRTOS, Drivers, FSM)
 ├── .gitignore    # Reglas de exclusión para temporales de Altium y LaTeX
 └── README.md     # Portada técnica del proyecto
-📄 Documentación Técnica
-La especificación completa del sistema, junto con los requerimientos derivados y la tabla detallada de casos de uso, se encuentra compilada en la carpeta docs/:
+```
 
-👉 Ver Especificación Técnica en PDF
-🚀 Instalación y Uso Local
-Para clonar este repositorio en tu equipo con el historial de versiones completo:
-git clone [https://github.com/tu-usuario/Proyecto-DR-VF-01-Cerca-Virtual.git](https://github.com/tu-usuario/Proyecto-DR-VF-01-Cerca-Virtual.git)
-cd Proyecto-DR-VF-01-Cerca-Virtual
-📜 Licencia y Contacto
 ---
 
-### Pasos para guardar y subir el `README.md` con GitHub Desktop
+## 📄 Documentación Técnica
 
-<Steps>
-  <Step subtitle="1 min" title="Crear el archivo en la raíz del proyecto">
-    1. Abre el **Bloc de notas** o VS Code.
-    2. Copia y pega el código Markdown anterior.
-    3. Ve a **Archivo** $\rightarrow$ **Guardar como...**
-    4. Navega hasta la carpeta raíz del proyecto (`Proyecto DR-VF-01-Cerca-Virtual`).
-    5. Selecciona el tipo **Todos los archivos (*.*)**, nombra el archivo exactamente **`README.md`** y haz clic en **Guardar**.
+La especificación completa del sistema, junto con los requerimientos derivados y la tabla detallada de casos de uso, se encuentra compilada en la carpeta `docs/`:
 
-    *Para verificar que el paso fue exitoso:* Verás el archivo `README.md` ubicado en la carpeta principal de tu proyecto al mismo nivel que `Docs`, `hardware` y `firmware`.
-  </Step>
+👉 **[Ver Especificación Técnica en PDF](./docs/DR-VF-01_Especificacion_Tecnica.pdf)**
 
-  <Step subtitle="1 min" title="Registrar el Commit en GitHub Desktop">
-    Abre **GitHub Desktop**:
-    1. En el panel izquierdo **Changes**, verás el nuevo archivo `README.md` marcado en verde.
-    2. En la casilla **Summary** (abajo a la izquierda), escribe: `docs: add professional README.md cover for repository`.
-    3. Haz clic en el botón azul **Commit to main**.
+---
 
-    *Para verificar que el paso fue exitoso:* La lista de cambios en verde se limpiará.
-  </Step>
+## 🚀 Instalación y Uso Local
 
-  <Step subtitle="1 min" title="Publicar en GitHub">
-    Haz clic en el botón **Push origin** en la barra superior.
+Para clonar este repositorio en tu equipo con el historial de versiones completo:
 
-    *Para verificar que el paso fue exitoso:* Ve a tu navegador web, entra a tu repositorio en GitHub y verás la portada con tablas, insignias y enlaces formateados correctamente.
-  </Step>
-</Steps>
+```bash
+git clone https://github.com/tu-usuario/Proyecto-DR-VF-01-Cerca-Virtual.git
+cd Proyecto-DR-VF-01-Cerca-Virtual
+```
 
-<Elicitations message="¿Pudiste publicar el README.md en GitHub?">
-  <Elicitation label="Estructura para Altium" query="Ya está listo el repositorio. ¿Cómo organizamos la carpeta Hardware para iniciar con el diseño en Altium Designer?"/>
-  <Elicitation label="Verificar enlace en GitHub" query="¿Cómo confirmo que los botones y la documentación PDF se abren correctamente desde la página web de GitHub?"/>
-</Elicitations>
+---
+
+## 📜 Licencia y Contacto
+
+Desarrollado como proyecto de grado e investigación en ingeniería electrónica para monitoreo ganadero y agricultura de precisión.
