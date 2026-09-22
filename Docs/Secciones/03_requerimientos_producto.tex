@@ -1,0 +1,29 @@
+\section*{Requerimientos del Producto (PRD)}
+
+\begin{table}[H]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.3}
+    \rowcolors{2}{white}{gray!8}
+    \begin{tabularx}{\linewidth}{|c|X|c|}
+        \hline
+        \rowcolor{gray!20}
+        \textbf{ID} & \textbf{Descripción del requerimiento} & \textbf{Tipo} \\ \hline
+        F-01 & El sistema debe determinar la ubicación geográfica mediante GPS con actualización $\ge 1~\text{Hz}$. & Funcional \\ \hline
+        F-02 & El microcontrolador debe ejecutar algoritmos Haversine y Point-in-Polygon en tiempo real. & Funcional \\ \hline
+        F-03 & El dispositivo debe contar con disuasión en dos etapas: alerta acústica y pulso electrostático. & Funcional \\ \hline
+        F-04 & El sistema debe contar con aislamiento galvánico mediante optoacoplador (PC817). & Funcional \\ \hline
+        F-05 & El collar debe integrar conectividad dual: GSM/2G para SMS/GPRS y LoRa para red privada. & Funcional \\ \hline
+        F-06 & Configuración de geocerca mediante servidor web interno accesible por Wi-Fi. & Funcional \\ \hline
+        F-07 & Carga híbrida: entrada fotovoltaica (Panel 5~V) y entrada USB-C (5~$\text{V}_{\text{DC}}$). & Funcional \\ \hline
+        F-08 & Corte de alimentación independiente mediante MOSFETs para apagar GPS/GSM en reposo. & Funcional \\ \hline
+        NF-01 & Autonomía mínima de 15~días continuos en ausencia total de radiación solar. & No funcional \\ \hline
+        NF-02 & Aislamiento galvánico con tensión de ruptura $\ge 1000~\text{V}_{\text{AC}}$ entre primario y secundario. & No funcional \\ \hline
+        NF-03 & Encapsulado mecánico estanco con grado de protección equivalente a IP67. & No funcional \\ \hline
+        NF-04 & Costo total de componentes (BOM) $\le \$150.000~\text{COP}$ ($\sim 35~\text{USD}$) por unidad. & No funcional \\ \hline
+        NF-05 & Rango térmico de operación expuesto en campo de $-10~^\circ\text{C}$ a $50~^\circ\text{C}$. & No funcional \\ \hline
+        NF-06 & Peso total del dispositivo, correa y contrapesos $\le 600~\text{g}$. & No funcional \\ \hline
+        NF-07 & Coordenadas del perímetro guardadas en memoria no volátil (NVS). & No funcional \\ \hline
+        NF-08 & PCB diseñada a 2 capas en Altium Designer para fácil manufactura. & No funcional \\ \hline
+    \end{tabularx}
+\end{table}

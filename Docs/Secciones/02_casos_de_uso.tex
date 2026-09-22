@@ -1,0 +1,23 @@
+\section*{Casos de Uso -- Collar Inteligente para Cerca Virtual (Arquitectura V4.1)}
+
+\begin{table}[H]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.3}
+    \rowcolors{2}{white}{gray!8}
+    \begin{tabularx}{\linewidth}{|c|X|X|}
+        \hline
+        \rowcolor{gray!20}
+        \textbf{Caso} & \textbf{Descripción} & \textbf{Requerimientos Derivados (Hardware V4.1)} \\ \hline
+        1 & Monitoreo estándar dentro de zona segura: El animal se desplaza libremente en el polígono. & GNSS u-blox MAX-M10S en muestreo adaptativo, módem Quectel BG95-M3 en modo PSM ($3.9~\mu\text{A}$) y transmisión periódica LTE Cat-M1/NB-IoT. \\ \hline
+        2 & Aproximación a zona de advertencia ($3\text{ a }5~\text{m}$ del borde): IMU/GNSS detecta trayectoria hacia el límite. & Incremento dinámico del GNSS a $10~\text{Hz}$ y activación inmediata del zumbador piezoeléctrico como estímulo sonoro preventivo. \\ \hline
+        3 & Traspaso del límite (Infracción de geocerca): El bovino ignora el sonido y cruza el perímetro. & Activación del pulso disuasivo aislado ($0.2~\text{J}$ a $2.5~\text{kV}$, IEC 60335-2-76) mediante optoacoplador VO617A e \textit{interlock} hardware; envío de alerta prioritaria. \\ \hline
+        4 & Configuración de potrero offline por el ganadero: El usuario define un nuevo lote en campo sin red. & ESP32-S3 genera punto de acceso Wi-Fi SoftAP / BLE, sirve la web app desde LittleFS y guarda las coordenadas en la memoria FRAM (MB85RS64V). \\ \hline
+        5 & Operación en zona rural sin cobertura celular: Finca remota sin señal LTE/EGPRS. & Conmutación automática a telemetría de largo alcance mediante transceptor LoRa Semtech SX1262 ($+22~\text{dBm}$) hacia Gateway local. \\ \hline
+        6 & Mantenimiento energético solar continuo: Exposición a radiación solar durante pastoreo. & Algoritmo de seguimiento MPPT (CN3791) optimizando la recarga de la celda LiFePO4 de $3.2~\text{V}$ ($3200~\text{mAh}$, tolerante hasta $60\,^\circ\text{C}$). \\ \hline
+        7 & Ahorro de energía por inactividad/rumia: El animal descansa o rumia en el potrero. & El Núcleo de Machine Learning (MLC) de la IMU ST LSM6DSOX clasifica la conducta; ESP32-S3 entra en \textit{Deep Sleep} ($7~\mu\text{A}$) con \textit{Watchdog} TPS3823 activo. \\ \hline
+        8 & Carga previa / Diagnóstico por cable: Mantenimiento o configuración rápida en establo. & Puerto USB-C nativo del ESP32-S3, CI de protección BQ2970 y calibración de estado de carga (SoC) mediante el medidor MAX17048. \\ \hline
+        9 & Degradación de señal GNSS por follaje denso: Pérdida o atenuación satelital en dosel forestal. & Operación multiconstelación (GPS, GLONASS, Galileo, Beidou) con filtro LNA/SAW, filtrado de Kalman y almacenamiento offline en Flash (16~MB). \\ \hline
+        10 & Alerta de carga crítica de batería: Disminución de capacidad tras días nublados continuos. & El medidor de Coulomb MAX17048 por $\text{I}^2\text{C}$ detecta SoC $\le 10\%$ (superando la curva plana de LiFePO4), envía alerta SMS/MQTT y conmuta a modo supervivencia. \\ \hline
+    \end{tabularx}
+\end{table}

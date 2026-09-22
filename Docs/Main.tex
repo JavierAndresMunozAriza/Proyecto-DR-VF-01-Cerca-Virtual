@@ -1,0 +1,36 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{array}
+
+% Carga la configuración global
+\input{Configuracion.tex}
+
+\begin{document}
+
+% Encabezado institucional del proyecto
+\begin{center}
+    {\Huge \bfseries UNAL}\\[0.15cm]
+    {\Large \bfseries DR-VF-01 | PRODUCT AND SYSTEM REQUIREMENTS}\\[0.1cm]
+    {\large \bfseries Collar Inteligente para Cerca Virtual y Monitoreo Ganadero}\\[0.1cm]
+    {\small \color{gray} Departamento de Ingeniería Eléctrica, Electrónica y Computación (DIEEC) -- Sede Manizales}\\
+    {\small \color{gray} Asignatura: Proyecto de Ingeniería Electrónica | \url{https://fia.unal.edu.co}}
+\end{center}
+
+\vspace{-0.2cm}
+\hrule height 1pt
+\vspace{0.3cm}
+
+% --- MÓDULOS DE CONTENIDO ---
+\input{Secciones/01_descripcion.tex}
+\input{Secciones/02_casos_de_uso.tex}
+\input{Secciones/03_requerimientos_producto.tex}
+\input{Secciones/04_requerimientos_srd.tex}
+\input{Secciones/05_priorizacion.tex}
+\input{Secciones/06_diagramas.tex}
+\input{Secciones/07_conclusiones.tex}
+\input{Secciones/08_revision.tex}
+
+\end{document}

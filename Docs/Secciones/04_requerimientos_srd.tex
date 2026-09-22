@@ -1,0 +1,46 @@
+\section*{Requerimientos del Sistema (SRD)}
+
+\begin{table}[H]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.3}
+    \rowcolors{2}{white}{gray!8}
+    \begin{tabularx}{\linewidth}{|c|X|X|X|}
+        \hline
+        \rowcolor{gray!20}
+        \textbf{ID} & \textbf{Descripción} & \textbf{Especificación / Valor} & \textbf{Verificación} \\ \hline
+
+        \multicolumn{4}{|l|}{\cellcolor{gray!20}\textbf{Entrada y Gestión de Energía}} \\ \hline
+        \textbf{SR-01} & Cosecha de energía solar & Panel monocristalino $5\text{ V DC}$, $1.5\text{ W} \text{--} 2.0\text{ W}$ & Prueba funcional con fuente DC / simulador \\ \hline
+        \textbf{SR-02} & Carga externa cableada & Puerto USB-C ($5\text{ V DC} \pm 5\%$, CI TP4056/CN3065) & Medición de perfil de carga CC/CV \\ \hline
+        \textbf{SR-03} & Almacenamiento de energía & Batería LiPo 3.7 V / 2500 mAh con PCM de protección & Ensayo de descarga a tasa $0.2\text{C}$ \\ \hline
+        \textbf{SR-04} & Consumo en ultra bajo consumo & $\le 15\,\mu\text{A}$ en modo Deep Sleep (corte por MOSFETs) & Medición con microamperímetro \\ \hline
+        \textbf{SR-05} & Autonomía sin radiación & $\ge 15\text{ días}$ continuos sin radiación solar & Ensayo de consumo acumulado en cámara \\ \hline
+
+        \multicolumn{4}{|l|}{\cellcolor{gray!20}\textbf{Posicionamiento Satelital y Edge Computing}} \\ \hline
+        \textbf{SR-10} & Frecuencia de refresco GPS & $\ge 1\text{ Hz}$ en modo activo (tramas NMEA GGA/RMC) & Analizador lógico sobre bus UART \\ \hline
+        \textbf{SR-11} & Precisión de geolocalización & $\le 2.5\text{ m}$ CEP en campo abierto & Comparación contra punto geodésico \\ \hline
+        \textbf{SR-12} & Tiempo de cálculo de geocerca & Latencia $\le 50\text{ ms}$ (Haversine + Point-in-Polygon) & Profiling de código en microcontrolador \\ \hline
+        \textbf{SR-13} & Retención de perímetro & Coordenadas guardadas en memoria Flash NVS no volátil & Prueba de ciclo de apagado total \\ \hline
+
+        \multicolumn{4}{|l|}{\cellcolor{gray!20}\textbf{Telemetría y Comunicaciones Duales}} \\ \hline
+        \textbf{SR-20} & Transmisión Cellular (GSM/2G) & Módulo SIM800L (Soporte ráfagas de corriente $\le 2\text{ A}$) & Osciloscopio sobre riel de $3.8\text{ V}$ \\ \hline
+        \textbf{SR-21} & Enlace de radio de largo alcance & Módulo LoRa SX1278 ($915\text{ MHz}$, alcance $\ge 2\text{ km}$ LoS) & Medición de RSSI/SNR y tasa PER \\ \hline
+        \textbf{SR-22} & Interfaz de configuración local & Servidor Web HTTP embebido vía Wi-Fi AP ($2.4\text{ GHz}$) & Validación de carga desde navegador móvil \\ \hline
+
+        \multicolumn{4}{|l|}{\cellcolor{gray!20}\textbf{Actuación, Disuasión y Seguridad}} \\ \hline
+        \textbf{SR-30} & Estímulo sonoro preventivo & Buzzer piezoeléctrico $\ge 85\text{ dBA @ 1 m}$ ($3\text{--}5\text{ m}$ previa valla) & Sonómetro calibrado a $1\text{ m}$ \\ \hline
+        \textbf{SR-31} & Estímulo electrostático disuasivo & Pulso de alto voltaje / muy baja corriente al cruzar valla & Medición de energía con sonda HV \\ \hline
+        \textbf{SR-32} & Aislamiento galvánico & Optoacoplador PC817 (Ruptura $\ge 1000\text{ VAC}$ entre fases) & Ensayo Hipot / Dielectric Withstand \\ \hline
+        \textbf{SR-33} & Control de desconexión lógica & MOSFET canal P para aislamiento total de etapa HV & Inspección de señal PWM de control \\ \hline
+
+        \multicolumn{4}{|l|}{\cellcolor{gray!20}\textbf{Ambientales, Mecánicos y Robustez}} \\ \hline
+        \textbf{SR-40} & Protección contra el entorno & Estanqueidad equivalente a IP67 (Sumersión $1\text{ m}$ / $30\text{ min}$) & Prueba de inmersión en tanque \\ \hline
+        \textbf{SR-41} & Rango térmico de operación & $-10\,^\circ\text{C}$ a $50\,^\circ\text{C}$ con exposición a radiación UV & Ensayos en cámara climática \\ \hline
+        \textbf{SR-42} & Masa total del dispositivo & $\le 600\text{ g}$ (Incluye chasis, collar y batería) & Pesaje en balanza analítica \\ \hline
+
+        \multicolumn{4}{|l|}{\cellcolor{gray!20}\textbf{Restricciones de Diseño y Costos}} \\ \hline
+        \textbf{SR-50} & Costo target de producción (BOM) & $\le \$150.000\text{ COP} \,\, (\sim 35\text{ USD})$ por unidad armada & Cotización auditada de componentes \\ \hline
+        \textbf{SR-51} & Manufacturabilidad de la PCB & Tarjeta de 2 capas en Altium Designer (Pistas $\ge 2\text{ A}$) & Revisión de reglas de diseño (DRC) \\ \hline
+    \end{tabularx}
+\end{table}

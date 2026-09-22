@@ -1,0 +1,16 @@
+# --- LaTeX ---
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# --- Altium Designer ---
+History/
+Project Logs*/
+Project Outputs*/
+*.PcbDocPreview
+*.SchDocPreview
+*.~*

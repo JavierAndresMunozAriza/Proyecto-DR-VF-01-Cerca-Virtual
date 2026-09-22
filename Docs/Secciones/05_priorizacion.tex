@@ -1,0 +1,22 @@
+\section*{Priorización de requerimientos (MoSCoW)}
+
+\begin{table}[H]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.3}
+    \rowcolors{2}{white}{gray!8}
+    \begin{tabularx}{\linewidth}{|X|c|}
+        \hline
+        \rowcolor{gray!20}
+        \textbf{Requerimiento / Función Clave} & \textbf{Prioridad} \\ \hline
+        Geolocalización GPS, algoritmo de geocerca en ESP32 y disuasión aislada & \textbf{Must} \\ \hline
+        Alimentación híbrida (Panel solar + USB-C) y cargador LiPo integrado & \textbf{Must} \\ \hline
+        Conectividad dual GSM/2G y LoRa para envío de alertas & \textbf{Must} \\ \hline
+        Servidor Web interno por Wi-Fi para definir polígonos de potrero & \textbf{Must} \\ \hline
+        Costo total de lista de materiales (BOM) $\le \$150.000~\text{COP}$ & \textbf{Must} \\ \hline
+        Modo \textit{Deep Sleep} y corte de energía por MOSFETs (consumo $< 15~\mu\text{A}$) & \textbf{Should} \\ \hline
+        Chasis estanco IP67 impreso en PETG con sellado de silicona & \textbf{Should} \\ \hline
+        Detección de patrones de actividad con acelerómetro LIS3DH & \textbf{Could} \\ \hline
+        Integración con plataforma en la nube o app nativa Android/iOS & \textbf{Won't} \\ \hline
+    \end{tabularx}
+\end{table}

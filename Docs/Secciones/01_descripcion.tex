@@ -1,0 +1,23 @@
+\section*{Descripción del problema de diseño}
+En la gestión ganadera extensiva, el control del perímetro mediante cercados físicos tradicionales representa un elevado costo de instalación, mantenimiento constante por caídas de árboles o animales, e inflexibilidad para implementar sistemas de pastoreo rotacional eficiente. El problema de diseño consiste en definir y documentar la arquitectura de grado industrial de un \textbf{Collar Inteligente de Cerca Virtual y Monitoreo en Tiempo Real (DR-VF-01)}, capaz de delimitar potreros dinámicos mediante geolocalización satelital multiconstelación a alta frecuencia y emitir estímulos disuasivos progresivos (sonoros y electrostáticos aislados de $0.2~\text{J}$ bajo la norma IEC 60335-2-76) cuando el bovino intenta sobrepasar los límites permitidos.
+
+\begin{itemize}[leftmargin=*, label=$\blacksquare$]
+    \item \textbf{Autonomía y Balance Energético MPPT:} Integración de un sistema de recarga conmutado por punto de máxima potencia (MPPT CN3791) y batería de tecnología LiFePO4 de alta estabilidad térmica ($60\,^\circ\text{C}$), alimentando el módem IoT LTE Cat-M1/NB-IoT en modo PSM ($3.9~\mu\text{A}$) y el receptor GNSS multiconstelación.
+    \item \textbf{Procesamiento en el Borde e Inteligencia Artificial (Edge AI):} Ejecución local en el microcontrolador de alto rendimiento (ESP32-S3-N16R8) de algoritmos geométricos (\textit{Point-in-Polygon} a $10~\text{Hz}$) y clasificación inercial de la conducta del animal (rumia y pastoreo) mediante el núcleo de Machine Learning integrado en la IMU ST LSM6DSOX.
+    \item \textbf{Seguridad, Aislamiento y Resiliencia Hardware:} Aislamiento de $5~\text{kV}_{\text{RMS}}$ entre la lógica de control ($3.3~\text{V}$) y la etapa de alto voltaje disuasivo ($2.5~\text{kV}$ / $0.2~\text{J}$), complementado con un temporizador \textit{Watchdog} externo dedicado (TPS3823) para prevenir bloqueos por interferencia electromagnética.
+    \item \textbf{Resistencia Mecánica y Estanqueidad IP68:} Encapsulado industrial en policarbonato PC+ABS resistente a radiación UV con membrana de descompresión Gore Vent, capaz de soportar impactos, sumersión en barro y variaciones térmicas extremas.
+    \item \textbf{Costo Target de Grado Comercial:} Mantener el costo total de la lista de materiales (\textit{Target BOM}) optimizado en \textbf{\$56.80~USD ($\sim$\$227.000~COP)} por unidad, garantizando viabilidad comercial para producción en serie.
+\end{itemize}
+
+\section*{Descripción técnica del sistema}
+La arquitectura funcional de grado industrial del collar se organiza en los siguientes bloques principales:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Etapa de Cosecha Solar y Gestión de Potencia:} Panel solar monocristalino (5~V / 1.5~W), controlador de carga MPPT (CN3791), circuito de protección de celda (BQ2970), medidor de carga por conteo de Coulomb ($\text{I}^2\text{C}$ MAX17048) y batería industrial LiFePO4 de 3.2~V (3200~mAh, $>2000$ ciclos útiles).
+    \item \textbf{Unidad de Procesamiento Central (MCU):} Microcontrolador ESP32-S3 Dual-Core (16~MB Flash, 8~MB PSRAM) a cargo del cálculo de geocercas en tiempo real, gestión de actualización remota de firmware (\textit{Dual-Bank OTA}), servidor web local (LittleFS) y punto de acceso Wi-Fi/BLE para configuración offline.
+    \item \textbf{Subsistema de Posicionamiento Satelital GNSS:} Receptor multiconstelación de alta precisión u-blox MAX-M10S (GPS, GLONASS, Galileo, Beidou) operando a una frecuencia de muestreo adaptativa de hasta 10~Hz mediante bus UART.
+    \item \textbf{Subsistema de Telemetría Dual (Celular IoT + LoRa):} Módem celular de bajo consumo Quectel BG95-M3 (LTE Cat-M1 / NB-IoT / EGPRS) y transceptor de radiofrecuencia de larga distancia Semtech SX1262 (LoRa 915~MHz a $+22~\text{dBm}$) para zonas sin cobertura celular.
+    \item \textbf{Etapa de Estimulación Disuasiva Aislada (HV Interlock):} Transistor driver con optoacoplador de alta aislación ($5~\text{kV}_{\text{RMS}}$), temporizador de corte por hardware de doble interruptor (\textit{interlock}), elevador de voltaje de ferrita limitado a $0.2~\text{J}$ ($2.5~\text{kV}$) según norma IEC 60335-2-76 y zumbador piezoeléctrico de advertencia.
+    \item \textbf{Subsistema Inercial e Inteligencia de Borde (IMU + MLC):} Acelerómetro y giroscopio de 6 ejes ST LSM6DSOX con Núcleo de Machine Learning (MLC) integrado para la detección pasiva de patrones de salud, caminata y rumia.
+    \item \textbf{Memoria No Volátil de Alta Durabilidad y Supervisión:} Memoria ferroeléctrica FRAM SPI (MB85RS64V, $10^{14}$ ciclos) para retención instantánea de polígonos/estados de la FSM y \textit{Watchdog} hardware externo independiente (TPS3823) conectado al pin de reinicio principal.
+\end{enumerate}
